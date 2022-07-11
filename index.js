@@ -40,22 +40,4 @@ var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-//redundant function, may not need
-function getClientIp(req) {
-  if (req.headers["x-forwarded-for"]) {
-    // try to get from x-forwared-for if it set (behind reverse proxy)
-    return req.headers["x-forwarded-for"].split(",")[0];
-  } else if (req.connection && req.connection.remoteAddress) {
-    // no proxy, try getting from connection.remoteAddress
-    return req.connection.remoteAddress;
-  } else if (req.socket) {
-    // try to get it from req.socket
-    return req.socket.remoteAddress;
-  } else if (req.connection && req.connection.socket) {
-    // try to get it form the connection.socket
-    return req.connection.socket.remoteAddress;
-  } else {
-    // if non above, fallback.
-    return req.ip;
-  }
-}
+
