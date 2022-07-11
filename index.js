@@ -40,6 +40,7 @@ var listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
+//redundant function, may not need
 function getClientIp(req) {
   if (req.headers["x-forwarded-for"]) {
     // try to get from x-forwared-for if it set (behind reverse proxy)
